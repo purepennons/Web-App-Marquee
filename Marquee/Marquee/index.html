@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-     <meta charset="utf-8">
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
@@ -16,46 +16,27 @@
 <!-- jQuery and jQuery Mobile javascript-->
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.mobile-1.3.1.min.js"></script>
+
+<!-- other javascript  -->
     <script src="js/canvas.js"></script>
     <script src="js/localStorage.js"></script>
     <script src="js/checkForm.js"></script>
-<!-- Extra Codiqa features -->
-
    
 </head>
 <body>
 <!-- Main Page(Page1) -->
     <div data-role="page" id="page1" data-title="Main page">
         <div data-theme="b" data-role="header" data-position="fixed" id="page1-header">
-
-<!--    <div class="ui-block-a">
-            <input type="text" name="" id="msg" placeholder="" value="" class="ui-block-a"/>
-        </div>
-        <div class="ui-block-c">
-            <a data-role="button" href="index.html" data-icon="search" data-iconpos="notext" data-inline="true">
-            </a>
-        </div>-->
-  <!--  <input type="text" name="msg" id="msg" placeholder="" value="" data-role="fieldcontain" />-->
-<!--        <form>
-            <div >
-                <input type="text" name="" id="msg" placeholder="" data-clear-btn="true" value=""/>
-            </div>
-            <div>
-            <a data-role="button" href="index.html" data-icon="search" data-iconpos="notext" data-inline="true">
-            </a>
-            </div>
-        </form>-->
-               <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
+            <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
                back
-               </a>
+            </a>
                <h3>Marquee</h3>
-               <a data-role="button" href="#page3" data-icon="Plus" data-inline="false" data-iconpos="right" data-transition="slide">
+            <a data-role="button" href="#page3" data-icon="Plus" data-inline="false" data-iconpos="right" data-transition="slide">
                new
-               </a>
-
+            </a>
         </div>
         <div data-role="content" id="page1-content">
-            <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="true">
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="true" data-mini="true">
                 <li>
                     <a href="#page2" data-transition="slide" onclick="init()">
                     <h3>Broken Bells</h3>
