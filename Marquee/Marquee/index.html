@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+     <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Marquee</title>
+  
+<!-- jQuery and jQuery Mobile CSS -->
+    <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
+    
+<!--    other CSS-->
+    <link href="css/my.css" rel="stylesheet" />  
+
+<!-- jQuery and jQuery Mobile javascript-->
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.mobile-1.3.1.min.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/localStorage.js"></script>
+    <script src="js/checkForm.js"></script>
+<!-- Extra Codiqa features -->
+
+   
+</head>
+<body>
+<!-- Main Page(Page1) -->
+    <div data-role="page" id="page1" data-title="Main page">
+        <div data-theme="b" data-role="header" data-position="fixed" id="page1-header">
+
+<!--    <div class="ui-block-a">
+            <input type="text" name="" id="msg" placeholder="" value="" class="ui-block-a"/>
+        </div>
+        <div class="ui-block-c">
+            <a data-role="button" href="index.html" data-icon="search" data-iconpos="notext" data-inline="true">
+            </a>
+        </div>-->
+  <!--  <input type="text" name="msg" id="msg" placeholder="" value="" data-role="fieldcontain" />-->
+<!--        <form>
+            <div >
+                <input type="text" name="" id="msg" placeholder="" data-clear-btn="true" value=""/>
+            </div>
+            <div>
+            <a data-role="button" href="index.html" data-icon="search" data-iconpos="notext" data-inline="true">
+            </a>
+            </div>
+        </form>-->
+               <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
+               back
+               </a>
+               <h3>Marquee</h3>
+               <a data-role="button" href="#page3" data-icon="Plus" data-inline="false" data-iconpos="right" data-transition="slide">
+               new
+               </a>
+
+        </div>
+        <div data-role="content" id="page1-content">
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="true">
+                <li>
+                    <a href="#page2" data-transition="slide" onclick="init()">
+                    <h3>Broken Bells</h3>
+                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+                </li>
+                <li>
+                    <a href="#">
+                    <h3>Warning</h3>
+                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+                </li>
+                <li>
+                    <a href="#">
+                    <h3>Wolfgang Amadeus Phoenix</h3>
+                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
+                </li>
+            </ul>
+        </div>
+        <div data-theme="b" data-role="footer" data-position="fixed" id="page3">
+            <h3>
+                Footer
+            </h3>
+        </div>
+    </div>
+<!--    Page 2   -->
+    <div data-role="page" id="page2" >
+        <canvas id="canvas"/>
+    </div>
+<!--    Page 3-->
+    <div data-role="page" id="page3">
+<!--        page3-header-->
+        <div data-theme="b" data-role="header" data-position="fixed" id="page3-header">
+
+               <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
+               back
+               </a>
+               <h3>Add a new Marquee</h3>
+               <a data-role="button" data-icon="check" data-inline="false" data-iconpos="right" data-transition="slide" onclick="getElement()">
+               save
+               </a>
+        </div>
+<!--        page3-content-->
+        <div data-role="content" id="page3-content">
+            <form id="setting-form" class="ui-body ui-body-d ui-corner-all">
+                <div data-role="fieldcontain">
+                    <label for="background-color">Background-color:</label>
+                    <select name="background-color" id="background-color" data-mini="true">
+                        <option value="black" selected="selected" style="background-color:black">black</option>
+                        <option value="red" style="background-color:red">red</option>
+                        <option value="blue" style="background-color:blue">blue</option>
+                        <option value="green" style="background-color:green">green</option>
+                        <option value="yellow" style="background-color:yellow">yellow</option>
+                        <option value="white" style="background-color:white">white</option>
+                        <option value="gray" style="background-color:gray">gray</option>
+                        <option value="purple" style="background-color:purple">purple</option>
+                    </select>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="font-color">Font-color:</label>
+                    <select name="font-color" id="font-color" data-mini="true">
+                        <option value="black" selected="selected" style="background-color:black">black</option>
+                        <option value="red" style="background-color:red">red</option>
+                        <option value="blue" style="background-color:blue">blue</option>
+                        <option value="green" style="background-color:green">purple</option>
+                        <option value="yellow" style="background-color:yellow">yellow</option>
+                        <option value="white" style="background-color:white">white</option>
+                        <option value="gray" style="background-color:gray">gray</option>
+                        <option value="purple" style="background-color:purple">purple</option>
+                    </select>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="font">Font:</label>
+                    <select name="font" id="font" data-mini="true">
+                        <option value="Microsoft YaHei" selected="selected" >微軟雅黑體</option>
+                        <option value="PMingLiU" >新細明體</option>
+                        <option value="MingLiU" >細明體</option>
+                        <option value="DFKai-sb" >標楷體</option>
+                        <option value="Arial" >Arial(English only)</option>
+                        <option value="Time New Roman" >Time New Roman(English only)</option>
+                        <option value="Comic Sans MS" >Comic Sans MS(English only)</option>
+                        <option value="sans-serif" >Sans-serif(English only)</option>
+                    </select>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="font-size">Font-size(px):</label>
+                    <input type="text" name="font-size" id="font-size" value="100" data-clear-btn="true" data-mini="true" style="text-align:center" onblur="check_font_size()"/>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="speed">Speed:</label>
+                    <input id="speed" type="range" name="speed" value="50" min="0" max="100"data-highlight="true" step="5">             
+                </div>
+ 
+                
+                    
+                <div data-role="fieldcontain" >
+                    <label for="font-style">Font-Style:</label>
+                    <fieldset data-role="controlgroup" data-type="horizontal" id="font-type" style="text-align:right">
+                        <input type="checkbox" name="font-style" id="italic">
+                        <label for="italic" style="font-style:italic">I</label>
+                        <input type="checkbox" name="font-style" id="bold">
+                        <label for="bold" style="font-weight:bold">B</label>
+                        <input type="checkbox" name="font-style" id="underline">
+                        <label for="underline" style="text-decoration:underline">U</label>
+                    </fieldset>
+                </div>
+
+                <div data-role="fieldcontain">
+                    <label for="msg">Message:</label>
+                    <textarea cols="20" rows="1" name="msg" id="msg"></textarea>
+                </div>
+
+                <div>
+                    <a data-role="button" href="#page1" data-icon="check" data-theme="b" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" onclick="getElement()"  >
+                    Submit
+                    </a>
+<!--                    <button type="submit" data-theme="a" name="submit" value="submit-value">Submit</button>-->
+                </div>
+            </form>
+        </div>
+        
+<!--        page3-footer-->
+        <div data-theme="b" data-role="footer" data-position="fixed" id="page3-footer">
+            <h3>
+                Footer
+            </h3>
+        </div>
+    </div>   
+
+</body>
+</html>

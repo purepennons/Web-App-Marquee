@@ -1,0 +1,5 @@
+D:\Project\Firefox OS App\Marquee\Marquee\Marquee\bin\Marquee.dll
+D:\Project\Firefox OS App\Marquee\Marquee\Marquee\bin\Marquee.pdb
+D:\Project\Firefox OS App\Marquee\Marquee\Marquee\obj\Debug\Marquee.csprojResolveAssemblyReference.cache
+D:\Project\Firefox OS App\Marquee\Marquee\Marquee\obj\Debug\Marquee.dll
+D:\Project\Firefox OS App\Marquee\Marquee\Marquee\obj\Debug\Marquee.pdb
