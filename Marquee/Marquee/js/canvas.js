@@ -23,14 +23,18 @@ function init() {  //隨視窗大小初始化canvas大小
     offset = 0;
     clearInterval(timeout);
     timeout = 0;
-    console.log('init')
-    var key = document.URL;
-    console.log(key);
-    //var key = document.getElementById();
-    key = '1014152955';
+    var keyURL = document.URL;
+    console.log('keyURL: ' + keyURL);
+    keyURL = keyURL.split('?')[1];
+    var key = keyURL.split('=')[1];
+    console.log('key: ' + key);
+    //key = key.split('?')[1];
+    //key = '101418817';
     if (key == null)
-        document.location.href('#page1');
+        window.location.replace('index.html');
     var dataStr = localStorage.getItem(key); //從localstorage取回data
+    //if (dataStr == null)
+    //    window.location.replace('index.html');
     data = JSON.parse(dataStr);
     data.italic = data.italic ? 'italic' : '';
     data.bold = data.bold ? 'bold' : '';

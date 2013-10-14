@@ -21,6 +21,7 @@
     var min = dt.getMinutes();
     var sec = dt.getSeconds();
     jsonElement.date = month.toString() + date.toString() + hour.toString() + min.toString() + sec.toString(); //取得系統當下時間當作key
+    //jsonElement.date = new Date();
     var jsonString = JSON.stringify(jsonElement);  //JSON字串化
     localStorage.setItem(jsonElement.date, jsonString); //以時間為key存入localstorage
     window.location.replace('index.html');
@@ -51,7 +52,8 @@ function createListViews() {
 
         document.getElementById('href' + key).addEventListener('click',
             function () {
-                window.location.replace(canvasHTML);    
+                //window.location.replace(canvasHTML);
+                location.assign(canvasHTML);
             },
             false);
     }
