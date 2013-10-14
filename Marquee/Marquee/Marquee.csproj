@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="canvas.html" />
     <Content Include="css\images\ajax-loader.gif" />
     <Content Include="css\images\icons-18-black.png" />
     <Content Include="css\images\icons-18-white.png" />

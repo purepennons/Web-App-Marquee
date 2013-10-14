@@ -23,7 +23,7 @@
     <script src="js/checkForm.js"></script>
    
 </head>
-<body>
+<body  onload="createListViews()" >
 <!-- Main Page(Page1) -->
     <div data-role="page" id="page1" data-title="Main page">
         <div data-theme="b" data-role="header" data-position="fixed" id="page1-header">
@@ -36,34 +36,19 @@
             </a>
         </div>
         <div data-role="content" id="page1-content">
-            <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="true" data-mini="true">
-                <li>
-                    <a href="#page2" data-transition="slide" onclick="init()">
-                    <h3>Broken Bells</h3>
-                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-                </li>
-                <li>
-                    <a href="#">
-                    <h3>Warning</h3>
-                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-                </li>
-                <li>
-                    <a href="#">
-                    <h3>Wolfgang Amadeus Phoenix</h3>
-                    <a href="#purchase" data-rel="popup" data-position-to="window" data-transition="pop">Purchase album</a>
-                </li>
+            <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="true" data-mini="true" id="ul-listView">
             </ul>
         </div>
-        <div data-theme="b" data-role="footer" data-position="fixed" id="page3">
+        <div data-theme="b" data-role="footer" data-position="fixed" id="page1-footer">
             <h3>
                 Footer
             </h3>
         </div>
     </div>
 <!--    Page 2   -->
-    <div data-role="page" id="page2" >
+<!--    <div data-role="page" id="page2" >
         <canvas id="canvas"/>
-    </div>
+    </div>-->
 <!--    Page 3-->
     <div data-role="page" id="page3">
 <!--        page3-header-->

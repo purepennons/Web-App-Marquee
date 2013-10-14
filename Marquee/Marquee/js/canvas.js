@@ -23,8 +23,11 @@ function init() {  //隨視窗大小初始化canvas大小
     offset = 0;
     clearInterval(timeout);
     timeout = 0;
-    var key = document.getElementById('id');
-    key = 'Mon Oct 14 2013 02:39:30 GMT+0800 (台北標準時間)';
+    console.log('init')
+    var key = document.URL;
+    console.log(key);
+    //var key = document.getElementById();
+    key = '1014152955';
     if (key == null)
         document.location.href('#page1');
     var dataStr = localStorage.getItem(key); //從localstorage取回data
@@ -66,7 +69,7 @@ function canvasSetting(data) {
     msg = data.msg;
     var font_style = data.italic + ' ' + data.bold + ' ' + data.font_size + 'px ' + data.font; //設定font_style ex:context.font = 'italic bold 500px 新細明體';
     context.font = font_style;  
-    context.textBaseline = 'center'; //以文字中心為基準點
+    context.textBaseline = 'alphabetic'; 
     //context.textAlign = 'center';
     canvas.style.backgroundColor = data.background_color;
     context.fillStyle = data.font_color;
