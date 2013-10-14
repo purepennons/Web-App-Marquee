@@ -1,4 +1,4 @@
-﻿//$(document).ready(function () {
+﻿//$(document).ready(function () {  //resize canvas by jquery
 //    var canvas = $("#canvas");
 //    if (canvas == null)
 //        return;
@@ -11,16 +11,31 @@
 //    }
 //    resizeCanvas();
 //});
-//canvas function
+
+window.onresize = function () {  //resize canvas by javascript
+    var canvas = document.getElementById('canvas');
+    if (canvas == null)
+        return false;
+    var context = canvas.getContext('2d');
+    if (context == null)
+        return false;
+    canvas.width = innerWidth;
+    canvas.height = innerHeight;
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    window.location.reload();
+}
+
 var canvas;
 var context;
 var offset = 0;
 var msg = '';
 var timeout = 0;
 var data;
+var speed = 0;
 
 function init() {  //隨視窗大小初始化canvas大小
     offset = 0;
+    speed = 0;
     clearInterval(timeout);
     timeout = 0;
     var keyURL = document.URL;
@@ -28,8 +43,6 @@ function init() {  //隨視窗大小初始化canvas大小
     keyURL = keyURL.split('?')[1];
     var key = keyURL.split('=')[1];
     console.log('key: ' + key);
-    //key = key.split('?')[1];
-    //key = '101418817';
     if (key == null)
         window.location.replace('index.html');
     var dataStr = localStorage.getItem(key); //從localstorage取回data
@@ -77,10 +90,11 @@ function canvasSetting(data) {
     //context.textAlign = 'center';
     canvas.style.backgroundColor = data.background_color;
     context.fillStyle = data.font_color;
+    speed = data.speed;
 
 
     //context.fillText(msg, 0-msg.length*20, canvas.height/2);
-    timeout =  setInterval(marquee, 30);
+    timeout = setInterval(marquee, speed);
     //setTimeout(marquee,10000);
 }
 
@@ -92,6 +106,7 @@ function drawUnderline(context, text, x, y, color, fontSize, textAlign) {  //在
     var endX = 0;
     var endY = startY;
     var underlineHeight = underlineP;
+    
     if (underlineHeight < 1)
         underlineHeight = 1;
     if (textAlign == 'right') {  //根據align位置決定x的起始與結束位置
@@ -102,23 +117,24 @@ function drawUnderline(context, text, x, y, color, fontSize, textAlign) {  //在
         endX = x + textWidth / 2;
     } else {
         startX = x;
-        endX = textWidth;
+        endX = x + textWidth;
 
     }
     //start to draw underline
     context.beginPath();
     context.strokeStyle = color;
     context.lineWidth = underlineHeight; //將線寬設成與underline高度等長
-    context.moveTo(startX, startY);
-    context.lineTo(endX, endY);
+    context.moveTo(endX, endY);
+    context.lineTo(startX, startY);
     context.closePath();
     context.stroke();
 }
 
 function marquee() {  //跑馬燈
+
+    clearCanvas();
     var startX = canvas.width - offset;
     var startY = canvas.height / 2;
-    clearCanvas();
     context.fillText(msg, startX, startY);  //從canvas的最右邊中間開始畫
     if(data.underline)
         drawUnderline(context, msg, startX, startY, data.font_color, data.font_size, 'left');
@@ -127,5 +143,9 @@ function marquee() {  //跑馬燈
         offset = 0;
     //clearCanvas();
     //setTimeout(marquee, 100);
+}
+
+function load() {
+    console.log('load');
 }
 

@@ -13,13 +13,8 @@ html, body {
     overflow: hidden;
 }
 
-#page2 {
-    background-color:black;
-    position:fixed;
-}
-
 #page2-content {
-    color:black;
+    color:white;
     position:fixed;
     /*top:50%;*/
     /*-webkit-transform:translate(100px);*/
@@ -30,7 +25,7 @@ html, body {
     position:absolute;
     /*top:50%;
     left:50%;*/
-    background-color:black; 
+    background-color:white; 
     display:block; 
 }
 

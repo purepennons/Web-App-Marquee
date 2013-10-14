@@ -58,7 +58,7 @@
                back
                </a>
                <h3>Add a new Marquee</h3>
-               <a data-role="button" data-icon="check" data-inline="false" data-iconpos="right" data-transition="slide" onclick="getElement()">
+               <a data-role="button" data-icon="check" data-inline="false" data-iconpos="right" data-transition="slide" onclick="checkForm()" >
                save
                </a>
         </div>
@@ -112,9 +112,14 @@
                     <input type="text" name="font-size" id="font-size" value="100" data-clear-btn="true" data-mini="true" style="text-align:center" onblur="check_font_size()"/>
                 </div>
 
+<!--                <div data-role="fieldcontain">
+                    <label for="offset">Offset:</label>
+                    <input id="offset" type="range" name="offset" value="15" min="1" max="30"data-highlight="true">             
+                </div>-->
+
                 <div data-role="fieldcontain">
                     <label for="speed">Speed:</label>
-                    <input id="speed" type="range" name="speed" value="50" min="0" max="100"data-highlight="true" step="5">             
+                    <input id="speed" type="range" name="speed" value="30" min="1" max="100"data-highlight="true" step="3">             
                 </div>
  
                 
@@ -133,11 +138,11 @@
 
                 <div data-role="fieldcontain">
                     <label for="msg">Message:</label>
-                    <textarea cols="20" rows="1" name="msg" id="msg"></textarea>
+                    <textarea cols="20" rows="1" name="msg" id="msg" onblur="check_null"></textarea>
                 </div>
 
                 <div>
-                    <a data-role="button" href="#page1" data-icon="check" data-theme="b" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" onclick="getElement()"  >
+                    <a data-role="button"  data-icon="check" data-theme="b" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" onclick="checkForm()"  >
                     Submit
                     </a>
 <!--                    <button type="submit" data-theme="a" name="submit" value="submit-value">Submit</button>-->
