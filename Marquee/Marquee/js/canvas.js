@@ -136,6 +136,7 @@ function marquee() {  //跑馬燈
     var startX = canvas.width - offset;
     var startY = canvas.height / 2;
     var offsetUnit = parseInt(data.offset);
+    //console.log(offsetUnit);
     context.fillText(msg, startX, startY);  //從canvas的最右邊中間開始畫
     if(data.underline)
         drawUnderline(context, msg, startX, startY, data.font_color, data.font_size, 'left');

@@ -48,7 +48,7 @@ function createListViews() {
         var createH = document.createElement('h3');
         var titleText = document.createTextNode(JSON.parse(localStorage.getItem(key)).msg);
         createH.appendChild(titleText);
-        $("div").data("role") === "page";
+        //$("div").data("role") === "page";
         var createA2 = document.createElement('a');
         createA2.href = 'nullPage.html?key=' + key;
         createA2.id = 'href2' + key;
@@ -65,7 +65,7 @@ function createListViews() {
         });
 
         $('#ul-listView').delegate('#href2' + key, 'click', function () { //jquery mobile secondary listview click event - delete
-            document.location.href = $(this).attr("href");
+            window.location.replace($(this).attr("href"));
             //$(this).parent('li').remove();  //立即刪除listView UI
             return false;
         });
@@ -115,9 +115,5 @@ function deleteLocalStorage() {
     } catch (e) {
         console.log('Nothing can be removed.');
     }
-    console.log('remove');
     window.location.replace('index.html');
-    $("#page1").page();
-    $('#ul-listView').listview('refresh');
-    createListViews();
 }
