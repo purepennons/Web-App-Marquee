@@ -94,7 +94,7 @@ function canvasSetting(data) {
 
 
     //context.fillText(msg, 0-msg.length*20, canvas.height/2);
-    timeout = setInterval(marquee, speed);
+    timeout = setInterval(marquee, parseInt(speed));
     //setTimeout(marquee,10000);
 }
 
@@ -135,17 +135,15 @@ function marquee() {  //跑馬燈
     clearCanvas();
     var startX = canvas.width - offset;
     var startY = canvas.height / 2;
+    var offsetUnit = parseInt(data.offset);
     context.fillText(msg, startX, startY);  //從canvas的最右邊中間開始畫
     if(data.underline)
         drawUnderline(context, msg, startX, startY, data.font_color, data.font_size, 'left');
-    offset += 5;
+    offset += offsetUnit;
     if (offset > canvas.width + context.measureText(msg).width) //offset至少大於text整體寬度+canvas寬度才輪迴
         offset = 0;
     //clearCanvas();
     //setTimeout(marquee, 100);
 }
 
-function load() {
-    console.log('load');
-}
 

@@ -10,7 +10,7 @@
     //check_font_size();
     jsonElement.font_size = document.getElementById('font-size').value; //取得字體大小
     jsonElement.msg = document.getElementById('msg').value; //取得訊息字串
-    //jsonElement.offset = document.getElementById('offset').value; //取得位移量
+    jsonElement.offset = document.getElementById('offset').value; //取得位移量
     jsonElement.speed = document.getElementById('speed').value; //取得速度
     jsonElement.italic = document.getElementById('italic').checked; //取得斜體狀態
     jsonElement.bold = document.getElementById('bold').checked; //取得粗體狀態
@@ -25,7 +25,7 @@
     //jsonElement.date = new Date();
     var jsonString = JSON.stringify(jsonElement);  //JSON字串化
     localStorage.setItem(jsonElement.date, jsonString); //以時間為key存入localstorage
-    window.location.replace('index.html');
+    //window.location.replace('index.html');
 }
 
 function createListViews() {

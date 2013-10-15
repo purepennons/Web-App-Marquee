@@ -106,15 +106,20 @@
                     </select>
                 </div>
 
-                <div data-role="fieldcontain">
+<!--                <div data-role="fieldcontain">
                     <label for="font-size">Font-size(px):</label>
                     <input type="text" name="font-size" id="font-size" value="100" data-clear-btn="true" data-mini="true" style="text-align:center" onblur="check_font_size()"/>
+                </div>-->
+
+                <div data-role="fieldcontain">
+                    <label for="font-size">Font-size(px):</label>
+                    <input id="font-size" type="range" name="font-size" value="100" min="10" max="500"data-highlight="true">             
                 </div>
 
-<!--                <div data-role="fieldcontain">
+                <div data-role="fieldcontain">
                     <label for="offset">Offset:</label>
-                    <input id="offset" type="range" name="offset" value="15" min="1" max="30"data-highlight="true">             
-                </div>-->
+                    <input id="offset" type="range" name="offset" value="5" min="0" max="30"data-highlight="true">             
+                </div>
 
                 <div data-role="fieldcontain">
                     <label for="speed">Speed:</label>
@@ -124,11 +129,11 @@
                 <div data-role="fieldcontain" >
                     <label for="font-style">Font-Style:</label>
                     <fieldset data-role="controlgroup" data-type="horizontal" id="font-type" style="text-align:right">
-                        <input type="checkbox" name="font-style" id="italic">
+                        <input type="checkbox" name="font-style" id="italic" />
                         <label for="italic" style="font-style:italic">I</label>
-                        <input type="checkbox" name="font-style" id="bold">
+                        <input type="checkbox" name="font-style" id="bold" />
                         <label for="bold" style="font-weight:bold">B</label>
-                        <input type="checkbox" name="font-style" id="underline">
+                        <input type="checkbox" name="font-style" id="underline" />
                         <label for="underline" style="text-decoration:underline">U</label>
                     </fieldset>
                 </div>
@@ -139,7 +144,7 @@
                 </div>
                 <fieldset class="ui-grid-a">
                     <div class="ui-block-b">
-                        <a data-role="button"  data-icon="delete" data-theme="d" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" href="index.html">
+                        <a data-role="button"  data-icon="delete" data-theme="d" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true"  href="index.html">
                             Cancel
                         </a>
                     </div>
