@@ -41,33 +41,49 @@ function createListViews() {
         console.log(canvasHTML);
         createA1.href = canvasHTML;
         //createA1.href = 'javascript:' + window.location.replace(canvasHTML);
-        createA1.id = 'href' + key;
+        createA1.id = 'href1' + key;
+        createA1.class = 'href1Class';
+        createA1.rel = 'external';
         //createA1.onclick = 'init()'; //無效
         var createH = document.createElement('h3');
         var titleText = document.createTextNode(JSON.parse(localStorage.getItem(key)).msg);
         createH.appendChild(titleText);
         $("div").data("role") === "page";
         var createA2 = document.createElement('a');
-        createA2.href = '#';
+        createA2.href = 'nullPage.html?key=' + key;
+        createA2.id = 'href2' + key;
+        createA2.class = 'href2Class';
+        createA2.rel = 'external';
         createA1.appendChild(createH);
-        //createA1.appendChild(mainButton);
         createLi.appendChild(createA1);  
         createLi.appendChild(createA2);
         ulListView.appendChild(createLi);
 
-        //document.getElementById(key).addEventListener('click',
+        $('#ul-listView').delegate('#href1' + key, 'click', function () { //jquery mobile listview click event - redirect
+            window.location.replace($(this).attr("href"));
+            return false;
+        });
+
+        $('#ul-listView').delegate('#href2' + key, 'click', function () { //jquery mobile secondary listview click event - delete
+            document.location.href = $(this).attr("href");
+            //$(this).parent('li').remove();  //立即刪除listView UI
+            return false;
+        });
+
+
+        //document.getElementById(key).addEventListener('click',  //會導致註冊到相同event
         //    function () {
         //        //window.location.replace(canvasHTML);
         //        console.log('click: ' + key);
         //        location.assign(canvasHTML);
         //    },
         //    false);
+
     }
-    $('#ul-listView').delegate("a", "click", function () { //jquery mobile listview click event redirect
-        //window.open($(this).attr("href"));
-        window.location.replace($(this).attr("href"));
-        return false;
-    });
+    //$('#ul-listView').delegate('a', 'click', function () { //可一次註冊listview裡全部第一個<a>的event
+    //    window.location.replace($(this).attr("href"));
+    //    return false;
+    //});
     $("#page1").page();
     $('#ul-listView').listview('refresh');  //更新jquery變動
 
@@ -80,6 +96,28 @@ function clearListViews(ulId) {  //清空ListView裡的li
         if(rmLi != null)
             ulListView.removeChild(rmLi);
     }
-    
 }
- 
+
+//function deleteListItem(ulId, liId) {  逐項刪除li透過javascript
+//    var ulListView = document.getElementById(ulId);
+//    var rmLi = document.getElementById(liId);
+//    if (rmLi != null)
+//        ulListView.removeChild(rmLi);
+//}
+
+function deleteLocalStorage() {
+    var keyURL = document.URL;
+    keyURL = keyURL.split('?')[1];
+    var key = keyURL.split('=')[1];
+    console.log(key);
+    try{
+        localStorage.removeItem(key);
+    } catch (e) {
+        console.log('Nothing can be removed.');
+    }
+    console.log('remove');
+    window.location.replace('index.html');
+    $("#page1").page();
+    $('#ul-listView').listview('refresh');
+    createListViews();
+}

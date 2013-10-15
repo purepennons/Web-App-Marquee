@@ -9,14 +9,13 @@
   
 <!-- jQuery and jQuery Mobile CSS -->
     <link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css">
-    
+
 <!--    other CSS-->
     <link href="css/my.css" rel="stylesheet" />  
 
 <!-- jQuery and jQuery Mobile javascript-->
     <script src="js/jquery-1.9.1.min.js"></script>
     <script src="js/jquery.mobile-1.3.1.min.js"></script>
-
 <!-- other javascript  -->
     <script src="js/canvas.js"></script>
     <script src="js/localStorage.js"></script>
@@ -27,21 +26,21 @@
 <!-- Main Page(Page1) -->
     <div data-role="page" id="page1" data-title="Main page">
         <div data-theme="b" data-role="header" data-position="fixed" id="page1-header">
-            <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
-               back
+            <a data-role="button" href="#" data-icon="refresh" data-inline="false" data-iconpos="notext" onclick="location.reload()">
+               Refresh
             </a>
                <h3>Marquee</h3>
             <a data-role="button" href="#page3" data-icon="Plus" data-inline="false" data-iconpos="right" data-transition="slide">
-               new
+               New
             </a>
         </div>
         <div data-role="content" id="page1-content">
-            <ul data-role="listview" data-split-icon="gear" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="true" data-mini="true" id="ul-listView">
+            <ul data-role="listview" data-split-icon="delete" data-split-theme="d" data-inset="false" data-filter="true" data-filter-placeholder="Search" data-autodividers="false" data-mini="true" id="ul-listView">
             </ul>
         </div>
         <div data-theme="b" data-role="footer" data-position="fixed" id="page1-footer">
             <h3>
-                Footer
+                Developer by Chiahao Lin
             </h3>
         </div>
     </div>
@@ -55,11 +54,11 @@
         <div data-theme="b" data-role="header" data-position="fixed" id="page3-header">
 
                <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
-               back
+               Back
                </a>
                <h3>Add a new Marquee</h3>
                <a data-role="button" data-icon="check" data-inline="false" data-iconpos="right" data-transition="slide" onclick="checkForm()" >
-               save
+               Save
                </a>
         </div>
 <!--        page3-content-->
@@ -82,12 +81,12 @@
                 <div data-role="fieldcontain">
                     <label for="font-color">Font-color:</label>
                     <select name="font-color" id="font-color" data-mini="true">
-                        <option value="black" selected="selected" style="background-color:black">black</option>
+                        <option value="black" style="background-color:black">black</option>
                         <option value="red" style="background-color:red">red</option>
                         <option value="blue" style="background-color:blue">blue</option>
                         <option value="green" style="background-color:green">purple</option>
                         <option value="yellow" style="background-color:yellow">yellow</option>
-                        <option value="white" style="background-color:white">white</option>
+                        <option value="white" selected="selected" style="background-color:white">white</option>
                         <option value="gray" style="background-color:gray">gray</option>
                         <option value="purple" style="background-color:purple">purple</option>
                     </select>
@@ -121,9 +120,7 @@
                     <label for="speed">Speed:</label>
                     <input id="speed" type="range" name="speed" value="30" min="1" max="100"data-highlight="true" step="3">             
                 </div>
- 
-                
-                    
+                                   
                 <div data-role="fieldcontain" >
                     <label for="font-style">Font-Style:</label>
                     <fieldset data-role="controlgroup" data-type="horizontal" id="font-type" style="text-align:right">
@@ -140,20 +137,26 @@
                     <label for="msg">Message:</label>
                     <textarea cols="20" rows="1" name="msg" id="msg" onblur="check_null"></textarea>
                 </div>
+                <fieldset class="ui-grid-a">
+                    <div class="ui-block-b">
+                        <a data-role="button"  data-icon="delete" data-theme="d" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" href="index.html">
+                            Cancel
+                        </a>
+                    </div>
+                    <div class="ui-block-b">
+                        <a data-role="button"  data-icon="check" data-theme="b" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" onclick="checkForm()"  >
+                            Submit
+                        </a>
+                    </div>
+                </fieldset>
 
-                <div>
-                    <a data-role="button"  data-icon="check" data-theme="b" data-inline="false"  data-iconpos="top"  data-transition="slide"  data-mini="true" onclick="checkForm()"  >
-                    Submit
-                    </a>
-<!--                    <button type="submit" data-theme="a" name="submit" value="submit-value">Submit</button>-->
-                </div>
             </form>
         </div>
         
 <!--        page3-footer-->
         <div data-theme="b" data-role="footer" data-position="fixed" id="page3-footer">
             <h3>
-                Footer
+                Setting Page
             </h3>
         </div>
     </div>   
