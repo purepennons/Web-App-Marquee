@@ -20,6 +20,18 @@
     <script src="js/canvas.js"></script>
     <script src="js/localStorage.js"></script>
     <script src="js/checkForm.js"></script>
+
+    <!-- style -->
+<!--    label{
+    
+    }
+    <script>
+        var settingLabel = document.querySelectorAll('label');
+        for (var i in settingLabel) {
+            settingLabel[i].style.fontWeight = 'bold';
+        }
+    </script>-->
+
    
 </head>
 <body  onload="createListViews()" >
@@ -56,7 +68,9 @@
                <a data-role="button" href="#" data-rel="back" data-icon="back" data-inline="false" data-iconpos="left" >
                Back
                </a>
-               <h3>Add a new Marquee</h3>
+               <h3>
+                   Setting Page
+               </h3>
                <a data-role="button" data-icon="check" data-inline="false" data-iconpos="right" data-transition="slide" onclick="checkForm()" >
                Save
                </a>
@@ -65,7 +79,7 @@
         <div data-role="content" id="page3-content">
             <form id="setting-form" class="ui-body ui-body-d ui-corner-all">
                 <div data-role="fieldcontain">
-                    <label for="background-color">Background-color:</label>
+                    <label for="background-color" class="setting-label" style="font-weight:bold">Background-color:</label>
                     <select name="background-color" id="background-color" data-mini="true">
                         <option value="black" selected="selected" style="background-color:black">black</option>
                         <option value="red" style="background-color:red">red</option>
@@ -79,7 +93,7 @@
                 </div>
 
                 <div data-role="fieldcontain">
-                    <label for="font-color">Font-color:</label>
+                    <label for="font-color" class="setting-label" style="font-weight:bold">Font-color:</label>
                     <select name="font-color" id="font-color" data-mini="true">
                         <option value="black" style="background-color:black">black</option>
                         <option value="red" style="background-color:red">red</option>
@@ -93,7 +107,7 @@
                 </div>
 
                 <div data-role="fieldcontain">
-                    <label for="font">Font:</label>
+                    <label for="font" class="setting-label" style="font-weight:bold">Font:</label>
                     <select name="font" id="font" data-mini="true">
                         <option value="Microsoft YaHei" selected="selected" >微軟雅黑體</option>
                         <option value="PMingLiU" >新細明體</option>
@@ -112,22 +126,22 @@
                 </div>-->
 
                 <div data-role="fieldcontain">
-                    <label for="font-size">Font-size(px):</label>
+                    <label for="font-size" class="setting-label" style="font-weight:bold">Font-size(px):</label>
                     <input id="font-size" type="range" name="font-size" value="100" min="10" max="500"data-highlight="true">             
                 </div>
 
                 <div data-role="fieldcontain">
-                    <label for="offset">Offset:</label>
+                    <label for="offset" class="setting-label" style="font-weight:bold">Offset:</label>
                     <input id="offset" type="range" name="offset" value="5" min="0" max="30"data-highlight="true">             
                 </div>
 
                 <div data-role="fieldcontain">
-                    <label for="speed">Speed:</label>
+                    <label for="speed" class="setting-label" style="font-weight:bold">Speed:</label>
                     <input id="speed" type="range" name="speed" value="30" min="1" max="100"data-highlight="true" step="3">             
                 </div>
                                    
                 <div data-role="fieldcontain" >
-                    <label for="font-style">Font-Style:</label>
+                    <label for="font-style" class="setting-label" style="font-weight:bold">Font-Style:</label>
                     <fieldset data-role="controlgroup" data-type="horizontal" id="font-type" style="text-align:right">
                         <input type="checkbox" name="font-style" id="italic" />
                         <label for="italic" style="font-style:italic">I</label>
@@ -139,7 +153,7 @@
                 </div>
 
                 <div data-role="fieldcontain">
-                    <label for="msg">Message:</label>
+                    <label for="msg" class="setting-label" style="font-weight:bold">Message:</label>
                     <textarea cols="20" rows="1" name="msg" id="msg" onblur="check_null"></textarea>
                 </div>
                 <fieldset class="ui-grid-a">
@@ -161,7 +175,7 @@
 <!--        page3-footer-->
         <div data-theme="b" data-role="footer" data-position="fixed" id="page3-footer">
             <h3>
-                Setting Page
+                Add a marquee
             </h3>
         </div>
     </div>   
