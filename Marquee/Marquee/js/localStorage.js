@@ -7,6 +7,8 @@
 
     jsonElement.font //取得字體
         = document.getElementById('font').options[document.getElementById('font').selectedIndex].value;
+    jsonElement.font_position //取得字體
+        = document.getElementById('text-position').options[document.getElementById('text-position').selectedIndex].value;
     //check_font_size();
     jsonElement.font_size = document.getElementById('font-size').value; //取得字體大小
     jsonElement.msg = document.getElementById('msg').value; //取得訊息字串

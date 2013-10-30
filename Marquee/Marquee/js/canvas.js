@@ -133,11 +133,26 @@ function drawUnderline(context, text, x, y, color, fontSize, textAlign) {  //在
 function marquee() {  //跑馬燈
 
     clearCanvas();
+    var baseCanvasHeight = canvas.height;
+    var halfCanvasHeight = baseCanvasHeight/2;
     var startX = canvas.width - offset;
-    var startY = canvas.height / 2;
+    var startY = 0;
     var offsetUnit = parseInt(data.offset);
-    //console.log(offsetUnit);
+    console.log('font' + data.font_position);
+    switch (data.font_position) {
+        case '1':
+            startY = halfCanvasHeight - (halfCanvasHeight / 2);
+            break;
+        case '2':
+            startY = halfCanvasHeight;
+            break;
+        case '3':
+            startY = halfCanvasHeight + (halfCanvasHeight / 2);
+            break;
+    }
+    console.log(startY);
     context.fillText(msg, startX, startY);  //從canvas的最右邊中間開始畫
+    context.strokeText(msg, startX, startY);
     if(data.underline)
         drawUnderline(context, msg, startX, startY, data.font_color, data.font_size, 'left');
     offset += offsetUnit;
